@@ -1,7 +1,6 @@
 // src/components/CoverImage.jsx
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import coverImage from '../../assets/images/cover-image.webp';
 
 const CoverImage = ({ altText = 'Portfolio cover image' }) => (
