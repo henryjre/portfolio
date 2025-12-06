@@ -10,7 +10,6 @@ function App() {
     <div>
       <Header />
 
-      {/* 👈 PLACE THE COVER IMAGE HERE */}
       <CoverImage altText="Portfolio cover image" className="shadow-lg" />
 
       <main>
