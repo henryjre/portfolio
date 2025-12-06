@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import coverImage from '../../assets/images/cover-image.jpg';
+import coverImage from '../../assets/images/cover-image.webp';
 
 const CoverImage = ({ altText = 'Portfolio cover image' }) => (
-  /* The key class here is 'h-[50vw]' which sets the height equal to 50% of the viewport width.*/ /* 'w-full' ensures it spans the entire width.*/ /* 'object-cover' ensures the image fills the container without being stretched.*/ /* 'bg-muted' provides a fallback background color while the image loads.*/ <div
+  <div
     className="w-full top-0 left-0 h-[min(50vw,70vw)] min-h-[400px] bg-muted relative overflow-hidden -mt-14 sm:-mt-20"
     aria-label={altText}
   >
