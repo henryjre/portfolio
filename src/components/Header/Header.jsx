@@ -93,7 +93,7 @@ const Header = () => {
                 </SheetClose>
               ))}
 
-              <div className="absolute bottom-0 right-0 p-3">
+              <div className="absolute top-0 left-0 p-3">
                 <ThemeToggle />
               </div>
             </div>
