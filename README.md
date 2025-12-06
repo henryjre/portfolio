@@ -1,16 +1,28 @@
-# React + Vite
+# 💼 Henry Pineda Jr. | Professional Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the source code for my personal portfolio website, designed to showcase my skills in **Frontend Development** and **Automation/System Specialization**.
 
-Currently, two official plugins are available:
+Built with React (Vite), styled using Tailwind CSS, and utilizing the shadcn/ui component library for an accessible and modern aesthetic. This portfolio was also developed with the assistance of Gemini 3 Pro.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This portfolio includes several modern design features and custom components built from scratch:
 
-## Expanding the ESLint configuration
+- **Responsive Design:** Fully optimized layout for PC, tablet, and mobile devices.
+- **Custom Theme:** Implements a dark mode toggle with custom **OKLCH color variables** for seamless theme switching.
+- **Dynamic Header:** A sticky navigation bar that transitions from a larger, semi-transparent state to a solid, slightly shorter state upon scrolling.
+- **Skills Showcase:** An auto-scrolling **Carousel** with custom, animated **5-star progress bars** to visually represent expertise levels.
+- **Interactive Experience Timeline:** A unique vertical timeline where a **dynamic progress line** fills up as the user scrolls, activating card animations and visual markers (dots).
+- **Call-to-Action Drawer:** A *"Let's Connect"* button that opens a bottom-sliding **Drawer (shadcn/ui)** with brand-colored social media links.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Technology Stack
+
+- **Framework:** React v19+
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS (v4) with Custom OKLCH Colors
+- **Component Library:** shadcn/ui
+- **Icons:** React Icons
