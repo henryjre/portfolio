@@ -1,16 +1,11 @@
-// src/components/Footer.jsx
-
 import React from 'react';
-import { Button } from '@/components/ui/button'; // Adjust path based on your setup
+import { Button } from '@/components/ui/button';
 
 import { FaGithub, FaLinkedin, FaDiscord, FaFacebookSquare } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 
-// 🚨 IMPORTANT: Replace with your actual image path
-// (e.g., from src/assets/images/profile.jpg)
-import profileImage from '../../assets/images/my-png.png';
+import profileImage from '../../assets/images/my-png.webp';
 
-// Define your social links
 const socialLinks = [
   {
     icon: FaFacebookSquare,
@@ -27,22 +22,17 @@ const Footer = () => {
   return (
     <footer className="w-full border-t border-border bg-card">
       <div className="container max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-10">
-        {/* Main Footer Content Grid/Flex */}
         <div className="flex flex-col items-center md:flex-row md:justify-between md:items-start gap-8">
-          {/* 1. 👤 About Me Section (Left) */}
           <div className="flex flex-col items-center md:items-start md:w-2/3 lg:w-1/2">
             <h3 className="justify-center text-2xl font-semibold text-foreground mb-4">About Me</h3>
 
             <div className="flex flex-col items-center md:flex-row md:items-start gap-4">
-              {/* Profile Image */}
               <img
                 src={profileImage}
                 alt="Your Profile Picture"
-                // Tailwind classes for a small, rounded profile image
                 className="w-30 h-30 md:w-24 md:h-24 object-cover rounded-full shrink-0 border-2 border-primary"
               />
 
-              {/* Name and Introduction */}
               <div>
                 <h4 className="text-xl font-semibold text-primary mb-1 text-center md:text-left">
                   Henry Enriquez Pineda Jr.
@@ -57,7 +47,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* 2. 📱 Social Icons (Right) */}
           <div className="flex flex-col items-center">
             <h3 className="text-2xl font-semibold text-foreground mb-4 text-center md:text-left">
               Let's Connect
@@ -77,7 +66,6 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     aria-label={`Visit my ${link.name} profile`}
                   >
-                    {/* Use Tailwind classes to override button's default SVG size */}
                     <link.icon className="size-6" />
                   </a>
                 </Button>
@@ -86,7 +74,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="mt-8 pt-6 border-t border-border text-center">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Henry Pineda Jr. All rights reserved.
