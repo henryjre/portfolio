@@ -1,17 +1,12 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 
-import { FaGithub, FaLinkedin, FaDiscord, FaFacebookSquare } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaDiscord } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 
 import profileImage from '../../assets/images/my-png.webp';
 
 const socialLinks = [
-  {
-    icon: FaFacebookSquare,
-    href: 'https://www.facebook.com/pinedahenryjre/',
-    name: 'Facebook',
-  },
   { icon: FaLinkedin, href: 'https://linkedin.com/in/pinedahenryjre/', name: 'LinkedIn' },
   { icon: FaGithub, href: 'https://github.com/henryjre', name: 'GitHub' },
   { icon: FaDiscord, href: 'https://discord.com/users/748568303219245117', name: 'Discord' },
