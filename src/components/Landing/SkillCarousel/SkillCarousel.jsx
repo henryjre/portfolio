@@ -19,6 +19,8 @@ import {
   SiGooglesheets,
   SiAdobeillustrator,
   SiAdobephotoshop,
+  SiPostgresql,
+  SiMysql,
   SiN8N,
   SiTailwindcss,
 } from 'react-icons/si';
@@ -58,16 +60,16 @@ const skillsData = [
     level: 2.5,
   },
   {
-    icon: SiAdobeillustrator,
-    title: 'Adobe Illustrator',
+    icon: SiPostgresql,
+    title: 'PostgreSQL',
     description:
-      'Editing images, creating minimalistic logos and graphics using the brand identity. ',
-    level: 4,
+      "Integrated with Node JS and Express JS, I've used postgres in storing and retrieving data. ",
+    level: 2.5,
   },
   {
-    icon: SiAdobephotoshop,
-    title: 'Adobe Photoshop',
-    description: 'Making simple edits to images which I use in Adobe Illustrator.',
+    icon: SiMysql,
+    title: 'MySQL',
+    description: "Similar to PostgreSQL, I've also integrated MySQL in Node JS. ",
     level: 2.5,
   },
   {
