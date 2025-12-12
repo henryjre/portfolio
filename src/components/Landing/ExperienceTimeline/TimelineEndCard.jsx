@@ -12,17 +12,10 @@ import {
   DrawerTrigger,
   DrawerFooter,
 } from '@/components/ui/drawer';
-import { FaGithub, FaLinkedin, FaDiscord, FaFacebookSquare } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaDiscord } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 
 const socialLinks = [
-  {
-    icon: FaFacebookSquare,
-    href: 'https://www.facebook.com/pinedahenryjre/',
-    name: 'Facebook',
-    bgClass: 'bg-[#1877F2] hover:bg-[#1877F2]/80 text-white',
-    iconColor: 'white',
-  },
   {
     icon: FaLinkedin,
     href: 'https://linkedin.com/in/pinedahenryjre/',
