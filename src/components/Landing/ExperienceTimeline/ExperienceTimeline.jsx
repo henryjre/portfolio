@@ -10,14 +10,14 @@ const experienceData = [
     location: 'Philippines · Remote',
     summary: (
       <p>
-        I helped build a Web3 gaming community that grew to more than twenty thousand members and
-        stayed active, supportive, and engaging. I led the setup of <strong>Discord systems</strong>{' '}
-        that made daily operations smoother, especially for scholar management and in game
-        coordination. I also introduced{' '}
-        <strong>automation tools like automatic SLP claiming, sending, and tracking</strong>, which
-        noticeably improved efficiency for the whole team. Throughout this work, I handled day to
-        day operations and supported the <strong>steady growth and scalability</strong> of the
-        scholar group and the community overall.
+        I helped build a Web3 gaming community of 20,000+ active members, ensuring it remained
+        supportive and engaging. I led the setup of Discord systems for scholar management and
+        in-game coordination and introduced{' '}
+        <strong className="text-primary">
+          automation tools for SLP claiming, sending, and tracking
+        </strong>
+        , significantly improving team efficiency while supporting daily operations and scalable
+        growth.
       </p>
     ),
   },
@@ -28,14 +28,13 @@ const experienceData = [
     location: 'Philippines · Hybrid',
     summary: (
       <p>
-        I managed and developed the company’s Discord communication platform, making internal
-        communication smoother and easier for everyone. I also built{' '}
-        <strong>
-          smart Discord automations and integrations with Shopee, Lazada, and TikTok Shop
+        I managed and developed the company’s Discord communication platform, improving internal
+        coordination. I built{' '}
+        <strong className="text-primary">
+          custom Discord automations and integrations with Shopee, Lazada, and TikTok Shop
         </strong>{' '}
-        to streamline order processing and improve how the team handled customer interactions. Every
-        week, I prepared and presented clear departmental updates during executive meetings to keep
-        the team aligned with ongoing plans and overall company goals.
+        to streamline order processing and enhance customer handling, and delivered weekly
+        departmental updates during executive meetings to align teams with company goals.
       </p>
     ),
   },
@@ -46,15 +45,14 @@ const experienceData = [
     location: 'Philippines · Remote',
     summary: (
       <p>
-        I led the technical development efforts on my own, handling all system integrations and day
-        to day technical operations to support the entire company. I built{' '}
-        <strong>custom Discord bot tools connected to our Odoo ERP</strong>, which helped automate
-        important updates and move the team toward a more paperless workflow. I also created
-        automations that{' '}
-        <strong>logged cash register transactions and flagged orders for audit</strong>, making the
-        auditing process smoother and improving financial transparency. On top of that, I designed a
-        Discord based attendance system that helped HR monitor check ins, tardiness, and schedule
-        compliance more efficiently across all branches.
+        I independently led the technical development and system integrations supporting company
+        operations. I built{' '}
+        <strong className="text-primary">custom Discord bots integrated with Odoo ERP</strong> to
+        automate updates and enable a paperless workflow, developed{' '}
+        <strong className="text-primary">audit and cash-log automations</strong> to improve
+        financial transparency, and designed a{' '}
+        <strong className="text-primary">Discord-based attendance system</strong> that helped HR
+        efficiently track check-ins, tardiness, and schedule compliance across all branches.
       </p>
     ),
   },
@@ -165,7 +163,7 @@ const ExperienceTimeline = () => {
     <section ref={sectionRef} className="py-12">
       <div className="container mx-auto max-w-[1440px] px-4 md:px-6 lg:px-8">
         <h2 className="text-4xl font-extrabold text-foreground text-center mb-12">
-          Work History & Experience
+          Work History <span className="text-primary">&</span> Experience
         </h2>
 
         <div className="relative">
