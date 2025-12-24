@@ -1,7 +1,7 @@
 import React from 'react';
 
 const navLinks = [
-  { name: 'About Me', href: '#about-me' },
+  { name: 'About Me', href: '#about' },
   { name: 'Projects', href: '#projects' },
 ];
 
