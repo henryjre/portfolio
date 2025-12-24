@@ -44,7 +44,7 @@ const AboutSection = () => {
             className="md:col-span-2 space-y-6 animate-fade-in"
             style={{ animationDelay: '0.2s' }}
           >
-            <div className="prose prose-invert max-w-none">
+            <div className="prose prose-invert max-w-none text-center md:text-left">
               <p className="text-lg text-foreground leading-relaxed">
                 Hi! I’m a developer who enjoys turning ideas into things that actually work. I love
                 seeing the systems and tools I build come to life, whether it’s a web app, an
@@ -59,7 +59,7 @@ const AboutSection = () => {
             </div>
 
             {/* Quick facts badges */}
-            <div className="flex flex-wrap gap-3 pt-4">
+            <div className="flex flex-wrap gap-3 pt-4 justify-center md:justify-start">
               {quickFacts.map((fact, index) => (
                 <div
                   key={index}
