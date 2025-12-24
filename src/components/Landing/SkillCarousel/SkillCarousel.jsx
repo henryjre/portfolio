@@ -106,7 +106,9 @@ const SkillsCarousel = () => {
   return (
     <section className="py-16">
       <div className="container mx-auto max-w-[1440px] px-4 md:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-foreground text-center mb-12">Skills & Expertise</h2>
+        <h2 className="text-4xl font-extrabold text-foreground text-center mb-12">
+          Skills <span className="text-primary">&</span> Expertise
+        </h2>
 
         <Carousel
           plugins={[plugin.current]}
@@ -122,7 +124,7 @@ const SkillsCarousel = () => {
             {skillsData.map((skill, index) => (
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                 <div className="p-1 h-full">
-                  <Card className="h-full bg-card/70 hover:bg-card transition-colors duration-200 shadow-md select-none">
+                  <Card className="h-full bg-card hover:bg-card/70 transition-colors duration-200 shadow-md select-none">
                     <CardContent className="flex flex-col items-center justify-start text-center p-6 space-y-4 h-full min-h-[350px]">
                       <skill.icon className="h-12 w-12 text-primary mb-2" aria-hidden="true" />
 
