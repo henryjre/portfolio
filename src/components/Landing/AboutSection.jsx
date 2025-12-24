@@ -1,3 +1,5 @@
+// src/components/AboutSection.jsx
+
 import { FaLightbulb, FaCode, FaCoffee } from 'react-icons/fa';
 
 const quickFacts = [
@@ -8,7 +10,7 @@ const quickFacts = [
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 sm:py-28 bg-background">
+    <section id="about" className="py-20 sm:py-28 bg-background scroll-mt-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl font-extrabold text-foreground text-center mb-12">
@@ -22,16 +24,14 @@ const AboutSection = () => {
             <div className="relative">
               <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl bg-linear-to-br from-card to-secondary border-2 border-border overflow-hidden shadow-lg">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  {/* Replace the src below with your actual profile image path or URL */}
                   <img
                     src="/my-png.webp"
                     alt="Henry Pineda"
-                    className="w-full h-full overflow-hidden rounded-2xl"
+                    className="w-full h-full overflow-hidden rounded-2xl object-cover"
                     draggable={false}
                   />
                 </div>
               </div>
-              {/* Decorative accent */}
               <div
                 className="absolute -bottom-2 -right-2 w-16 h-16 bg-primary/50 rounded-xl -z-10"
                 aria-hidden="true"
