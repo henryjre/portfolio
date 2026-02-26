@@ -11,4 +11,16 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'motion': ['framer-motion'],
+          'ui': ['@radix-ui/react-dialog', '@radix-ui/react-progress', '@radix-ui/react-slot', 'vaul'],
+          'carousel': ['embla-carousel-react', 'embla-carousel-autoplay'],
+        },
+      },
+    },
+  },
 });

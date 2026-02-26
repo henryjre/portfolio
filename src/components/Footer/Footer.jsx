@@ -2,13 +2,11 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 
 import { FaGithub, FaLinkedin, FaDiscord } from 'react-icons/fa';
-import { SiGmail } from 'react-icons/si';
 
 const socialLinks = [
   { icon: FaLinkedin, href: 'https://linkedin.com/in/pinedahenryjre/', name: 'LinkedIn' },
   { icon: FaGithub, href: 'https://github.com/henryjre', name: 'GitHub' },
   { icon: FaDiscord, href: 'https://discord.com/users/748568303219245117', name: 'Discord' },
-  { icon: SiGmail, href: 'mailto:pinedahenryjre@gmail.com', name: 'Gmail' },
 ];
 
 const Footer = () => {

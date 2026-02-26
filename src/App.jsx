@@ -1,26 +1,50 @@
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import Header from './components/Header/Header.jsx';
-import CoverImage from './components/Landing/CoverImage.jsx';
 import Footer from './components/Footer/Footer.jsx';
-import QuoteContainer from './components/Landing/QuoteContainer.jsx';
-import SkillCarousel from './components/Landing/SkillCarousel/SkillCarousel.jsx';
-import ExperienceTimeline from './components/Landing/ExperienceTimeline/ExperienceTimeline.jsx';
-import AboutSection from './components/Landing/AboutSection.jsx';
+import Home from './pages/Home.jsx';
+import Projects from './pages/Projects.jsx';
+
+const pageVariants = {
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } },
+  exit: { opacity: 0, y: -16, transition: { duration: 0.25, ease: 'easeIn' } },
+};
+
+function AnimatedPage({ children }) {
+  return (
+    <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit">
+      {children}
+    </motion.div>
+  );
+}
 
 function App() {
+  const location = useLocation();
+
   return (
     <div>
       <Header />
-
-      <CoverImage altText="Portfolio cover image" className="shadow-lg" />
-
-      <main>
-        <div className="bg-secondary/40">
-          <SkillCarousel />
-          <ExperienceTimeline />
-        </div>
-        <AboutSection />
-      </main>
-
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <AnimatedPage>
+                <Home />
+              </AnimatedPage>
+            }
+          />
+          <Route
+            path="/projects"
+            element={
+              <AnimatedPage>
+                <Projects />
+              </AnimatedPage>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
       <Footer />
     </div>
   );

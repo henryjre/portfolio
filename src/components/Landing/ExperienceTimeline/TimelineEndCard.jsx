@@ -13,7 +13,6 @@ import {
   DrawerFooter,
 } from '@/components/ui/drawer';
 import { FaGithub, FaLinkedin, FaDiscord } from 'react-icons/fa';
-import { SiGmail } from 'react-icons/si';
 
 const socialLinks = [
   {
@@ -36,13 +35,6 @@ const socialLinks = [
     name: 'Discord',
     bgClass: 'bg-[#5865F2] hover:bg-[#5865F2]/80 text-white',
     iconColor: 'white',
-  },
-  {
-    icon: SiGmail,
-    href: 'mailto:pinedahenryjre@gmail.com',
-    name: 'Gmail',
-    bgClass: 'bg-white hover:bg-gray-100 text-black border border-input',
-    iconColor: 'red',
   },
 ];
 

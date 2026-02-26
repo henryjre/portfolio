@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Henry Pineda Jr. | Portfolio</title>
+    <script>
+      // GitHub Pages SPA redirect trick.
+      // Redirects 404s back to index.html, preserving the path as a query param,
+      // which index.html then reads and restores via history.replaceState.
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 2).join('/') +
+        '/?p=' + encodeURIComponent(l.pathname.slice(1) + (l.search ? '&' + l.search.slice(1) : '')) +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

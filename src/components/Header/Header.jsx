@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { IoIosMenu } from 'react-icons/io';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import ThemeToggle from './ThemeToggle';
-import NavigationMenu from './NavigationMenu';
-
-const navLinks = [
-  { name: 'About Me', href: '#about-me' },
-  { name: 'Projects', href: '#projects' },
-];
+import NavigationMenu, { useAboutNavigation, useContactNavigation } from './NavigationMenu';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const handleAboutClick = useAboutNavigation();
+  const handleContactClick = useContactNavigation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,18 +52,19 @@ const Header = () => {
   return (
     <header className={headerClasses}>
       <div className={innerClasses}>
-        <div className="mr-4 shrink-0">
-          <a
-            href="#"
+        <div className="shrink-0 md:w-[120px]">
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="text-2xl md:text-3xl font-bold text-primary text-shadow-sm hover:text-accent dark:hover:text-accent transition-colors"
           >
             Henry
-          </a>
+          </Link>
         </div>
 
         <NavigationMenu />
 
-        <div className="hidden md:flex shrink-0 ml-auto">
+        <div className="hidden md:flex shrink-0 md:w-[120px] justify-end">
           <ThemeToggle />
         </div>
 
@@ -82,16 +81,31 @@ const Header = () => {
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
             <div className="flex flex-col space-y-3 pt-8 mt-5 items-center">
-              {navLinks.map((link) => (
-                <SheetClose asChild key={link.name}>
-                  <a
-                    href={link.href}
-                    className="block p-3 text-base font-semibold text-foreground hover:bg-muted rounded-md transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </SheetClose>
-              ))}
+              <SheetClose asChild>
+                <button
+                  onClick={handleAboutClick}
+                  className="block w-full p-3 text-base font-semibold text-foreground hover:bg-muted rounded-md transition-colors text-left cursor-pointer"
+                >
+                  About Me
+                </button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Link
+                  to="/projects"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                  className="block p-3 text-base font-semibold text-foreground hover:bg-muted rounded-md transition-colors"
+                >
+                  Projects
+                </Link>
+              </SheetClose>
+              <SheetClose asChild>
+                <button
+                  onClick={handleContactClick}
+                  className="block w-full p-3 text-base font-semibold text-foreground hover:bg-muted rounded-md transition-colors text-left cursor-pointer"
+                >
+                  Contact Me
+                </button>
+              </SheetClose>
 
               <div className="absolute top-0 left-0 p-3">
                 <ThemeToggle />
