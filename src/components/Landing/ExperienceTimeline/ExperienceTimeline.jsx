@@ -85,7 +85,7 @@ const TimelineCard = ({ data, isVisible }) => {
           </div>
 
           <div className="md:w-[70%] border-t md:border-t-0 md:border-l border-border md:pl-6 pt-4 md:pt-0 text-center md:text-left">
-            <p className="text-sm text-foreground">{summary}</p>
+            <div className="text-sm text-foreground">{summary}</div>
           </div>
         </div>
       </div>
@@ -178,7 +178,7 @@ const ExperienceTimeline = () => {
             const itemId = `exp-item-${data.id}`;
 
             if (data.isEndCard) {
-              return <TimelineEndCard />;
+              return <TimelineEndCard key="end" />;
             }
 
             return (

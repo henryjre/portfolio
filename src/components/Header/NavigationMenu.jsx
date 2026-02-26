@@ -6,28 +6,18 @@ function scrollToSection(id) {
 }
 
 export function useAboutNavigation() {
-  const location = useLocation();
   const navigate = useNavigate();
 
   return function handleAboutClick() {
-    if (location.pathname === '/') {
-      scrollToSection('about');
-    } else {
-      navigate('/', { state: { scrollTo: 'about' } });
-    }
+    navigate({ pathname: '/', hash: '#about' });
   };
 }
 
 export function useContactNavigation() {
-  const location = useLocation();
   const navigate = useNavigate();
 
   return function handleContactClick() {
-    if (location.pathname === '/') {
-      scrollToSection('contact');
-    } else {
-      navigate('/', { state: { scrollTo: 'contact' } });
-    }
+    navigate({ pathname: '/', hash: '#contact' });
   };
 }
 
@@ -36,14 +26,29 @@ const NavigationMenu = () => {
   const handleAboutClick = useAboutNavigation();
   const handleContactClick = useContactNavigation();
   const isProjectsActive = location.pathname === '/projects';
+  const isHomeActive = location.pathname === '/' && !location.hash;
+  const isAboutActive = location.pathname === '/' && location.hash === '#about';
+  const isContactActive = location.pathname === '/' && location.hash === '#contact';
+
+  const activeClass = 'text-primary';
+  const inactiveClass = 'text-muted-foreground hover:text-accent dark:hover:text-accent';
 
   return (
     <nav className="hidden h-full grow md:flex md:justify-center">
       <ul className="flex items-center space-x-6">
         <li>
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className={`font-semibold transition-colors ${isHomeActive ? activeClass : inactiveClass}`}
+          >
+            Home
+          </Link>
+        </li>
+        <li>
           <button
             onClick={handleAboutClick}
-            className="font-semibold transition-colors text-muted-foreground hover:text-accent dark:hover:text-accent cursor-pointer"
+            className={`font-semibold transition-colors cursor-pointer ${isAboutActive ? activeClass : inactiveClass}`}
           >
             About Me
           </button>
@@ -52,11 +57,7 @@ const NavigationMenu = () => {
           <Link
             to="/projects"
             onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-            className={`font-semibold transition-colors ${
-              isProjectsActive
-                ? 'text-primary'
-                : 'text-muted-foreground hover:text-accent dark:hover:text-accent'
-            }`}
+            className={`font-semibold transition-colors ${isProjectsActive ? activeClass : inactiveClass}`}
           >
             Projects
           </Link>
@@ -64,7 +65,7 @@ const NavigationMenu = () => {
         <li>
           <button
             onClick={handleContactClick}
-            className="font-semibold transition-colors text-muted-foreground hover:text-accent dark:hover:text-accent cursor-pointer"
+            className={`font-semibold transition-colors cursor-pointer ${isContactActive ? activeClass : inactiveClass}`}
           >
             Contact Me
           </button>

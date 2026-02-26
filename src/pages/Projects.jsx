@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
@@ -6,16 +6,21 @@ import ProjectSection from '@/components/Projects/ProjectSection.jsx';
 import projects from '@/data/projects.js';
 
 function Projects() {
+  const scrollRef = useRef(null);
+
   useEffect(() => {
     document.title = 'Projects | Henry Pineda Jr.';
+    return () => {
+      if (scrollRef.current) scrollRef.current.scrollTop = 0;
+    };
   }, []);
 
   return (
-    <div className="h-screen overflow-y-scroll snap-y snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <div ref={scrollRef} className="h-screen overflow-y-scroll snap-y snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       {/* Hero snap section */}
       <section className="h-screen snap-start flex flex-col items-center justify-center px-[4vw] bg-background relative">
         <motion.div
-          className="text-center max-w-2xl"
+          className="text-center max-w-2xl -mt-20 sm:-mt-40"
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}

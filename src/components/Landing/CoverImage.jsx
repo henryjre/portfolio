@@ -52,7 +52,7 @@ const CoverImage = () => {
         className="text-center z-10 px-4 flex flex-col items-center gap-4"
       >
         <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-foreground">
-          Henry Pineda
+          Henry Pineda Jr.
         </h1>
 
         <div className="h-8 md:h-12 flex items-center justify-center">

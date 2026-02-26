@@ -7,22 +7,24 @@ import AboutSection from '@/components/Landing/AboutSection.jsx';
 import ContactForm from '@/components/Contact/ContactForm.jsx';
 
 function Home() {
-  const { state } = useLocation();
+  const { hash } = useLocation();
 
   useEffect(() => {
     document.title = 'Henry Pineda Jr. | Portfolio';
   }, []);
 
   useEffect(() => {
-    if (state?.scrollTo) {
-      // Small delay to let the page render before scrolling
+    if (hash) {
+      const id = hash.replace('#', '');
       const timer = setTimeout(() => {
-        const el = document.getElementById(state.scrollTo);
+        const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      }, 500);
       return () => clearTimeout(timer);
+    } else {
+      window.scrollTo(0, 0);
     }
-  }, [state]);
+  }, [hash]);
 
   return (
     <>

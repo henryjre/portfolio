@@ -1,22 +1,16 @@
+import { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Home from './pages/Home.jsx';
 import Projects from './pages/Projects.jsx';
 
-const pageVariants = {
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } },
-  exit: { opacity: 0, y: -16, transition: { duration: 0.25, ease: 'easeIn' } },
-};
-
-function AnimatedPage({ children }) {
-  return (
-    <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit">
-      {children}
-    </motion.div>
-  );
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
 }
 
 function App() {
@@ -26,27 +20,12 @@ function App() {
   return (
     <div>
       <Header />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route
-            path="/"
-            element={
-              <AnimatedPage>
-                <Home />
-              </AnimatedPage>
-            }
-          />
-          <Route
-            path="/projects"
-            element={
-              <AnimatedPage>
-                <Projects />
-              </AnimatedPage>
-            }
-          />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </AnimatePresence>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
       {!isProjects && <Footer />}
     </div>
   );

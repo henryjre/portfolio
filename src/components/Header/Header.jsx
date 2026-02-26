@@ -82,6 +82,15 @@ const Header = () => {
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
             <div className="flex flex-col space-y-3 pt-8 mt-5 items-center">
               <SheetClose asChild>
+                <Link
+                  to="/"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="block w-full p-3 text-base font-semibold text-foreground hover:bg-muted rounded-md transition-colors text-center"
+                >
+                  Home
+                </Link>
+              </SheetClose>
+              <SheetClose asChild>
                 <button
                   onClick={handleAboutClick}
                   className="block w-full p-3 text-base font-semibold text-foreground hover:bg-muted rounded-md transition-colors text-center cursor-pointer"
