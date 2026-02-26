@@ -31,8 +31,8 @@ const Header = () => {
     sticky top-0 z-50 w-full border-b border-border transition-all duration-300 ease-in-out shadow-sm
     ${
       isScrolled
-        ? // WHEN SCROLLED
-          'h-10 sm:h-14 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60'
+        ? // WHEN SCROLLED (desktop only)
+          'h-14 sm:h-14 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60'
         : // AT TOP
           'h-14 sm:h-20 bg-card/80'
     }
@@ -42,8 +42,8 @@ const Header = () => {
     container max-w-[1440px] mx-auto flex items-center px-[4vw]
     ${
       isScrolled
-        ? // WHEN SCROLLED
-          'h-10 sm:h-14'
+        ? // WHEN SCROLLED (desktop only)
+          'h-14 sm:h-14'
         : // AT TOP
           'h-14 sm:h-20'
     }
@@ -84,7 +84,7 @@ const Header = () => {
               <SheetClose asChild>
                 <button
                   onClick={handleAboutClick}
-                  className="block w-full p-3 text-base font-semibold text-foreground hover:bg-muted rounded-md transition-colors text-left cursor-pointer"
+                  className="block w-full p-3 text-base font-semibold text-foreground hover:bg-muted rounded-md transition-colors text-center cursor-pointer"
                 >
                   About Me
                 </button>
@@ -93,7 +93,7 @@ const Header = () => {
                 <Link
                   to="/projects"
                   onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                  className="block p-3 text-base font-semibold text-foreground hover:bg-muted rounded-md transition-colors"
+                  className="block w-full p-3 text-base font-semibold text-foreground hover:bg-muted rounded-md transition-colors text-center"
                 >
                   Projects
                 </Link>
@@ -101,7 +101,7 @@ const Header = () => {
               <SheetClose asChild>
                 <button
                   onClick={handleContactClick}
-                  className="block w-full p-3 text-base font-semibold text-foreground hover:bg-muted rounded-md transition-colors text-left cursor-pointer"
+                  className="block w-full p-3 text-base font-semibold text-foreground hover:bg-muted rounded-md transition-colors text-center cursor-pointer"
                 >
                   Contact Me
                 </button>
