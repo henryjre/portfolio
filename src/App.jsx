@@ -21,6 +21,7 @@ function AnimatedPage({ children }) {
 
 function App() {
   const location = useLocation();
+  const isProjects = location.pathname === '/projects';
 
   return (
     <div>
@@ -45,7 +46,7 @@ function App() {
           />
         </Routes>
       </AnimatePresence>
-      <Footer />
+      {!isProjects && <Footer />}
     </div>
   );
 }
