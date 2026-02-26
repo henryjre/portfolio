@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
