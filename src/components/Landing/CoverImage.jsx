@@ -1,6 +1,7 @@
 // src/components/CoverImage.jsx
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaChevronDown } from 'react-icons/fa';
 
@@ -66,6 +67,14 @@ const CoverImage = () => {
             className="inline-block w-[2px] h-6 md:h-10 bg-primary ml-1 align-middle"
           />
         </div>
+
+        <Link
+          to="/projects"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+          className="mt-2 px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
+        >
+          View My Projects
+        </Link>
       </motion.div>
 
       {/* Scroll Down Indicator */}
