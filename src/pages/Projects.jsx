@@ -30,7 +30,7 @@ function Projects() {
             Projects
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
-            A collection of things I've built, from full-stack web applications and internal ops platforms to Discord bots and workflow automations.
+            A collection of things I've built, from full-stack web applications and internal ops platforms to Discord bots and workflow automations, as well as graphic design projects.
           </p>
           <p className="mt-8 text-sm text-muted-foreground animate-bounce">
             Scroll to explore ↓

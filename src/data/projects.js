@@ -62,6 +62,48 @@ const projects = [
     githubUrl: null,
     demoUrl: null,
   },
+  {
+    id: 'project-6',
+    title: 'Bakes & Basque',
+    description:
+      'I designed the branding and menu for a bakery client. Since they had no studio-grade product photos, I generated AI images of their products and used those as the visual assets throughout. I also created their logo and laid out the full menu using those assets in Photoshop and Illustrator.',
+    images: [
+      'projects/graphic-design/bakesnbasque/bakesnbasque-1.webp',
+      'projects/graphic-design/bakesnbasque/bakesnbasque-2.webp',
+      'projects/graphic-design/bakesnbasque/bakesnbasque-3.webp',
+      'projects/graphic-design/bakesnbasque/bakesnbasque-4.webp',
+      'projects/graphic-design/bakesnbasque/bakesnbasque-5.webp',
+      'projects/graphic-design/bakesnbasque/bakesnbasque-6.webp',
+      'projects/graphic-design/bakesnbasque/bakesnbasque-7.webp',
+      'projects/graphic-design/bakesnbasque/bakesnbasque-8.webp',
+      'projects/graphic-design/bakesnbasque/bakesnbasque-9.webp',
+      'projects/graphic-design/bakesnbasque/bakesnbasque-10.webp',
+      'projects/graphic-design/bakesnbasque/bakesnbasque-11.webp',
+    ],
+    tags: ['Graphic Design', 'Photoshop', 'Illustrator', 'AI Generated Images'],
+    githubUrl: null,
+    demoUrl: null,
+  },
+  {
+    id: 'project-7',
+    title: 'Monster Siomai',
+    description:
+      'I handled the full visual identity for a siomai food booth client. With no product photos available, I generated the logo and AI images of their products based on what they sell, then used those to build a slideshow designed to run on their booth screen.',
+    images: [
+      'projects/graphic-design/monster-siomai/monster-siomai-1.webp',
+      'projects/graphic-design/monster-siomai/monster-siomai-2.webp',
+      'projects/graphic-design/monster-siomai/monster-siomai-3.webp',
+      'projects/graphic-design/monster-siomai/monster-siomai-4.webp',
+      'projects/graphic-design/monster-siomai/monster-siomai-5.webp',
+      'projects/graphic-design/monster-siomai/monster-siomai-6.webp',
+      'projects/graphic-design/monster-siomai/monster-siomai-7.webp',
+      'projects/graphic-design/monster-siomai/monster-siomai-8.webp',
+      'projects/graphic-design/monster-siomai/monster-siomai-9.webp',
+    ],
+    tags: ['Graphic Design', 'Photoshop', 'Illustrator', 'AI Generated Images'],
+    githubUrl: null,
+    demoUrl: null,
+  },
 ];
 
 export default projects;
