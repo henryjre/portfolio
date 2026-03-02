@@ -53,10 +53,17 @@ function ImageStack({ images, title, onImageClick }) {
     startInterval();
   }
 
+  // Only render cards that are within the visible stack window
+  const VISIBLE_COUNT = STACK_POSITIONS.length;
+
   return (
     <div className="relative w-full aspect-video select-none">
       {images.map((src, i) => {
         const position = (i - activeIndex + images.length) % images.length;
+
+        // Skip rendering cards that are beyond the visible stack depth
+        if (position >= VISIBLE_COUNT) return null;
+
         const style = getStackStyle(position, images.length);
         const isTop = position === 0;
 

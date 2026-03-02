@@ -64,7 +64,7 @@ const skillsData = [
     title: 'PostgreSQL',
     description:
       "Integrated with Node JS and Express JS, I've used postgres in storing and retrieving data. ",
-    level: 2.5,
+    level: 3.5,
   },
   {
     icon: SiMysql,
@@ -76,21 +76,21 @@ const skillsData = [
     icon: SiN8N,
     title: 'N8N',
     description: 'Started upskilling and learning n8n automations.',
-    level: 1.5,
+    level: 4,
   },
   {
     icon: FaReact,
     title: 'React',
     description:
       'I started learning React to build my own projects and to improve my skills. This website is built using React.',
-    level: 2.5,
+    level: 3.5,
   },
   {
     icon: SiTailwindcss,
     title: 'Tailwind CSS',
     description:
       'I also started learning Tailwind CSS for my react projects. This website is designed using Tailwind CSS.',
-    level: 2.5,
+    level: 3.5,
   },
 ];
 // -----------------------------------------------------------------
