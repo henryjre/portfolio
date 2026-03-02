@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import { Button } from '@/components/ui/button';
 import ImageStack from './ImageStack';
+import ImageModal from './ImageModal';
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -48 },
@@ -13,7 +15,7 @@ const fadeRight = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut', delay: 0.15 } },
 };
 
-function ProjectImage({ images, title }) {
+function ProjectImage({ images, title, onImageClick }) {
   if (!images || images.length === 0) {
     return (
       <div className="rounded-2xl w-full aspect-video flex items-center justify-center bg-secondary border border-border shadow-inner">
@@ -24,25 +26,46 @@ function ProjectImage({ images, title }) {
 
   if (images.length === 1) {
     return (
-      <img
-        src={images[0]}
-        alt={`${title} screenshot`}
-        loading="lazy"
-        className="rounded-2xl shadow-xl w-full max-h-[55vh] object-cover border border-border"
-      />
+      <div className="w-full flex flex-col items-center gap-6">
+        <button
+          onClick={() => onImageClick(0)}
+          className="w-full cursor-pointer focus:outline-none"
+          aria-label="View image"
+        >
+          <img
+            src={images[0]}
+            alt={`${title} screenshot`}
+            loading="lazy"
+            className="rounded-2xl shadow-xl w-full max-h-[55vh] object-cover border border-border hover:brightness-90 transition-all"
+          />
+        </button>
+        <motion.p
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="text-xs text-muted-foreground"
+        >
+          Click to view
+        </motion.p>
+      </div>
     );
   }
 
   return (
-    // Extra bottom padding to make room for dot indicators
-    <div className="w-full pb-8">
-      <ImageStack images={images} title={title} />
+    <div className="w-full pb-16">
+      <ImageStack images={images} title={title} onImageClick={onImageClick} />
     </div>
   );
 }
 
 function ProjectSection({ project, index }) {
   const isEven = index % 2 === 0;
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalIndex, setModalIndex] = useState(0);
+
+  function openModal(i) {
+    setModalIndex(i);
+    setModalOpen(true);
+  }
 
   return (
     <section className="h-screen snap-start flex items-center justify-center px-[4vw] bg-background">
@@ -58,7 +81,7 @@ function ProjectSection({ project, index }) {
             whileInView="visible"
             viewport={{ once: true, amount: 0.4 }}
           >
-            <ProjectImage images={project.images} title={project.title} />
+            <ProjectImage images={project.images} title={project.title} onImageClick={openModal} />
           </motion.div>
 
           {/* Content */}
@@ -116,6 +139,15 @@ function ProjectSection({ project, index }) {
           </motion.div>
         </div>
       </div>
+
+      {modalOpen && (
+        <ImageModal
+          images={project.images}
+          startIndex={modalIndex}
+          title={project.title}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
     </section>
   );
 }

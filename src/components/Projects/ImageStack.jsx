@@ -21,7 +21,7 @@ function getStackStyle(position, totalImages) {
   };
 }
 
-function ImageStack({ images, title }) {
+function ImageStack({ images, title, onImageClick }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const intervalRef = useRef(null);
   const isDragging = useRef(false);
@@ -77,7 +77,8 @@ function ImageStack({ images, title }) {
             dragElastic={0.2}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
-            style={{ cursor: isTop ? 'grab' : 'default' }}
+            onClick={() => { if (isTop && !isDragging.current) onImageClick?.(activeIndex); }}
+            style={{ cursor: isTop ? 'pointer' : 'default' }}
             whileDrag={{ cursor: 'grabbing' }}
           >
             <img
@@ -104,6 +105,15 @@ function ImageStack({ images, title }) {
           />
         ))}
       </div>
+
+      {/* Click to view hint */}
+      <motion.div
+        animate={{ y: [0, 6, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute -bottom-14 left-1/2 -translate-x-1/2 text-xs text-muted-foreground"
+      >
+        Click to view
+      </motion.div>
     </div>
   );
 }
