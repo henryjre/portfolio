@@ -65,7 +65,7 @@ const TimelineEndCard = () => {
               <p className="text-sm font-medium text-foreground">or</p>
               <Button size="lg" className="px-8 w-[30vw] md:w-auto" variant="secondary" asChild>
                 <a
-                  href="/my-resume.pdf"
+                  href="/resume-henry-pineda.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="View My Resume (opens in new tab)"
