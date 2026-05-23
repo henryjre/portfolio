@@ -3,7 +3,7 @@
 
 /*
   Brutalist / engineered-grid theme.
-  Two themes, dark is default. Signal accent (orange) is theme-invariant.
+  Dark-only palette with a fixed signal accent.
 */
 
 @theme inline {
@@ -75,7 +75,7 @@
     border-color: var(--rule);
   }
 
-  /* Custom focus ring — visible on both themes, accent-colored, 2px offset. */
+  /* Custom focus ring — accent-colored, 2px offset. */
   :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
