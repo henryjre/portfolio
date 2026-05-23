@@ -10,7 +10,9 @@ import {
   SiNextdotjs,
   SiOpenai,
   SiClaude,
+  SiDocker,
 } from 'react-icons/si';
+import { DiRedis } from "react-icons/di";
 import SectionHeader from './SectionHeader';
 import Marquee from './Marquee';
 
@@ -33,6 +35,7 @@ const SKILLS = [
   { icon: SiOdoo, label: 'Odoo ERP' },
   { icon: SiN8N, label: 'n8n' },
   { icon: SiPostgresql, label: 'PostgreSQL' },
+  { icon: DiRedis, label: 'Redis' },
   { icon: SiMysql, label: 'MySQL' },
   { icon: SiGooglesheets, label: 'Sheets / Apps Script' },
   { icon: FaReact, label: 'React' },
@@ -43,6 +46,7 @@ const SKILLS = [
   { icon: CursorLogo, label: 'Cursor' },
   { icon: FaGithub, label: 'Git / GitHub' },
   { icon: SiNextdotjs, label: 'Next.js' },
+  { icon: SiDocker, label: 'Docker' },
   { icon: FaLinux, label: 'Linux' },
 ];
 
@@ -50,7 +54,7 @@ export default function Skills() {
   return (
     <section id="skills" className="py-20 md:py-28 border-b border-[var(--rule)] scroll-mt-20">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeader index="01" label="STACK" meta="16 TOOLS / DAILY DRIVERS" />
+        <SectionHeader index="01" label="STACK" meta="18 TOOLS / DAILY DRIVERS" />
       </div>
 
       <Marquee speed={40}>

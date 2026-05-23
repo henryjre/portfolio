@@ -84,8 +84,8 @@ export default function ProjectsView() {
             </h1>
 
             <p className="mt-8 text-[var(--ink-dim)] max-w-2xl text-base md:text-lg leading-relaxed">
-              Things I&apos;ve built — full-stack apps, internal ops platforms, Discord systems,
-              n8n workflows, and graphic design work. Scroll for the archive.
+              Systems, automations, and brand assets that help clients reduce busywork, keep
+              operations connected, and move faster with fewer scattered tools.
             </p>
           </motion.div>
 
