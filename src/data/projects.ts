@@ -1,0 +1,118 @@
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  images: string[];
+  tags: string[];
+  githubUrl: string | null;
+  demoUrl: string | null;
+}
+
+const projects: Project[] = [
+  {
+    id: 'project-1',
+    title: 'ICP-FNET Engineering Website',
+    description:
+      'I built a full-stack website for an engineering firm that includes a public project portfolio and a document portal. Clients get their own login to access project files, and the team manages everything through an admin panel with role-based access.',
+    images: ['/projects/icp-website/icp-website.webp'],
+    tags: ['React', 'Node.js', 'PostgreSQL', 'Prisma', 'Express', 'JWT', 'AWS S3', 'RBAC'],
+    githubUrl: 'https://github.com/henryjre/icp-website.git',
+    demoUrl: 'https://icpfnetengineering.com',
+  },
+  {
+    id: 'project-2',
+    title: 'Omnilert Web Application',
+    description:
+      'I built an internal operations platform for a multi-branch business. It handles employee shifts, POS verification, HR workflows, and authorization requests across branches, all connected to their Odoo ERP through webhooks with real-time updates via Socket.IO. I also built the access control system around a Discord-inspired role and permission model, where each role carries a set of granular permission keys that gate specific actions across the platform.',
+    images: [
+      '/projects/omnilert-webapp/omnilert-web-app.webp',
+      '/projects/omnilert-webapp/Screenshot_7.webp',
+      '/projects/omnilert-webapp/Screenshot_8.webp',
+      '/projects/omnilert-webapp/Screenshot_9.webp',
+      '/projects/omnilert-webapp/Screenshot_10.webp',
+    ],
+    tags: ['React', 'Node.js', 'PostgreSQL', 'Express', 'Socket.io', 'JWT', 'Odoo ERP', 'B2B'],
+    githubUrl: 'https://github.com/henryjre/omnilert-web-app.git',
+    demoUrl: 'https://omnilert.app',
+  },
+  {
+    id: 'project-3',
+    title: 'Omnilert Discord Bot and Server',
+    description:
+      'I built a Discord bot that brings the core features of the Omnilert platform into a Discord server. It handles shift tracking, POS verification, employee requests, and authorization flows through slash commands, all synced live with Odoo ERP.',
+    images: ['/projects/discord-servers/omnilert-server/omnilert-discord-1.webp'],
+    tags: ['Discord.js', 'Node.js', 'Odoo ERP', 'Redis', 'SQLite'],
+    githubUrl: 'https://github.com/henryjre/Omnilert-FBW-Discord-Bot.git',
+    demoUrl: null,
+  },
+  {
+    id: 'project-4',
+    title: 'Automated Job Seeker',
+    description:
+      'I built an automation that scrapes job listings from LinkedIn, Indeed, and Onlinejobs.ph, filters them by keywords, and runs each one through an AI model to check if it fits a target profile. Matches get posted to a Discord channel on a schedule for easy review.',
+    images: [
+      '/projects/n8n/automated-job-seeker/automated-job-seeker.webp',
+      '/projects/n8n/automated-job-seeker/discord-results.webp',
+    ],
+    tags: ['Python', 'n8n', 'Docker', 'Workflow Automation'],
+    githubUrl: null,
+    demoUrl: null,
+  },
+  {
+    id: 'project-5',
+    title: 'Omnilert Daily Quota Rewards',
+    description:
+      "I built an n8n workflow that pulls each employee's daily attendance and POS session sales, then automatically fires a Sales Order in Odoo with a Token Pay reward. The tokens land directly in the employee's wallet and can be redeemed at the POS. Rewarded employees also get notified through Discord. It runs on a 4 AM schedule every day without manual intervention.",
+    images: [
+      '/projects/n8n/daily-token-pay/daily-quota-1.webp',
+      '/projects/n8n/daily-token-pay/daily-quota-2.webp',
+    ],
+    tags: ['n8n', 'Odoo ERP', 'Workflow Automation'],
+    githubUrl: null,
+    demoUrl: null,
+  },
+  {
+    id: 'project-6',
+    title: 'Bakes & Basque',
+    description:
+      'I designed the branding and menu for a bakery client. Since they had no studio-grade product photos, I generated AI images of their products and used those as the visual assets throughout. I also created their logo and laid out the full menu using those assets in Photoshop and Illustrator.',
+    images: [
+      '/projects/graphic-design/bakesnbasque/bakesnbasque-1.webp',
+      '/projects/graphic-design/bakesnbasque/bakesnbasque-2.webp',
+      '/projects/graphic-design/bakesnbasque/bakesnbasque-3.webp',
+      '/projects/graphic-design/bakesnbasque/bakesnbasque-4.webp',
+      '/projects/graphic-design/bakesnbasque/bakesnbasque-5.webp',
+      '/projects/graphic-design/bakesnbasque/bakesnbasque-6.webp',
+      '/projects/graphic-design/bakesnbasque/bakesnbasque-7.webp',
+      '/projects/graphic-design/bakesnbasque/bakesnbasque-8.webp',
+      '/projects/graphic-design/bakesnbasque/bakesnbasque-9.webp',
+      '/projects/graphic-design/bakesnbasque/bakesnbasque-10.webp',
+      '/projects/graphic-design/bakesnbasque/bakesnbasque-11.webp',
+    ],
+    tags: ['Graphic Design', 'Photoshop', 'Illustrator', 'AI Generated Images'],
+    githubUrl: null,
+    demoUrl: null,
+  },
+  {
+    id: 'project-7',
+    title: 'Monster Siomai',
+    description:
+      'I handled the full visual identity for a siomai food booth client. With no product photos available, I generated the logo and AI images of their products based on what they sell, then used those to build a slideshow designed to run on their booth screen.',
+    images: [
+      '/projects/graphic-design/monster-siomai/monster-siomai-1.webp',
+      '/projects/graphic-design/monster-siomai/monster-siomai-2.webp',
+      '/projects/graphic-design/monster-siomai/monster-siomai-3.webp',
+      '/projects/graphic-design/monster-siomai/monster-siomai-4.webp',
+      '/projects/graphic-design/monster-siomai/monster-siomai-5.webp',
+      '/projects/graphic-design/monster-siomai/monster-siomai-6.webp',
+      '/projects/graphic-design/monster-siomai/monster-siomai-7.webp',
+      '/projects/graphic-design/monster-siomai/monster-siomai-8.webp',
+      '/projects/graphic-design/monster-siomai/monster-siomai-9.webp',
+    ],
+    tags: ['Graphic Design', 'Photoshop', 'Illustrator', 'AI Generated Images'],
+    githubUrl: null,
+    demoUrl: null,
+  },
+];
+
+export default projects;
