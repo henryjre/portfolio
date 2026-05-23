@@ -3,11 +3,19 @@ import Link from 'next/link';
 import { FiArrowLeft } from 'react-icons/fi';
 import About from '@/components/redesign/About';
 import Footer from '@/components/redesign/Footer';
+import { OG_IMAGE, SITE_DESCRIPTION } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'About | Henry Pineda Jr.',
+  title: 'About',
   description:
-    'About Henry Pineda Jr. — a developer focused on backends, Discord systems, and automation. Based in Manila, Philippines.',
+    'About Henry Pineda Jr. — a Pampanga-based developer focused on full-stack websites, automations, and system integrations.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About | Henry Pineda Jr',
+    description: SITE_DESCRIPTION,
+    url: '/about',
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: 'About Henry Pineda Jr' }],
+  },
 };
 
 export default function AboutPage() {

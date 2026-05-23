@@ -3,11 +3,20 @@ import Link from 'next/link';
 import { FiArrowLeft } from 'react-icons/fi';
 import Contact from '@/components/redesign/Contact';
 import Footer from '@/components/redesign/Footer';
+import { OG_IMAGE } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Contact | Henry Pineda Jr.',
+  title: 'Contact',
   description:
-    'Get in touch with Henry Pineda Jr. for collaboration, work inquiries, or to say hello.',
+    'Contact Henry Pineda Jr. for full-stack websites, automations, system integrations, collaboration, or work inquiries.',
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title: 'Contact | Henry Pineda Jr',
+    description:
+      'Contact Henry Pineda Jr. for full-stack websites, automations, system integrations, collaboration, or work inquiries.',
+    url: '/contact',
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: 'Contact Henry Pineda Jr' }],
+  },
 };
 
 export default function ContactPage() {
