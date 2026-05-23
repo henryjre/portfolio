@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FiArrowLeft } from 'react-icons/fi';
 import Contact from '@/components/redesign/Contact';
 import Footer from '@/components/redesign/Footer';
+import ScrambleText from '@/components/redesign/ScrambleText';
 import { OG_IMAGE } from '@/lib/seo';
 
 export const metadata: Metadata = {
@@ -33,7 +34,8 @@ export default function ContactPage() {
               BACK · /INDEX
             </Link>
             <h1 className="mt-10 mono font-bold uppercase tracking-[-0.02em] text-[var(--ink)] leading-[0.92] text-[clamp(2.6rem,10vw,7rem)]">
-              CONTACT<span className="text-[var(--accent)]">.</span>
+              <ScrambleText text="CONTACT" duration={700} />
+              <ScrambleText text="." duration={1000} className="text-[var(--accent)]" />
             </h1>
             <p className="mt-6 max-w-2xl text-[var(--ink-dim)] text-base md:text-lg leading-relaxed">
               Work, collaboration, or a quiet hello. Direct line below.
