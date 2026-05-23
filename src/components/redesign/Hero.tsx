@@ -206,7 +206,7 @@ export default function Hero() {
           </MagneticLink>
 
           <MagneticLink
-            href="/#contact"
+            href="/contact"
             className="group flex items-center justify-between p-6 md:p-8 hover:bg-[var(--paper)] transition-colors"
           >
             <div>
