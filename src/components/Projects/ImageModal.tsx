@@ -60,7 +60,7 @@ function ImageModal({ images, startIndex, title, onClose }: ImageModalProps) {
         <span className="hidden md:inline truncate max-w-md">{title}</span>
         <button
           onClick={onClose}
-          className="flex items-center gap-2 text-[var(--ink)] hover:text-[var(--accent)] transition-colors"
+          className="flex min-h-11 items-center gap-2 px-2 text-[var(--ink)] hover:text-[var(--accent)] transition-colors"
           aria-label="Close image viewer"
         >
           CLOSE <FiX className="size-4" />
@@ -85,7 +85,7 @@ function ImageModal({ images, startIndex, title, onClose }: ImageModalProps) {
         <img
           src={images[index]}
           alt={`${title} screenshot ${index + 1}`}
-          className="max-h-[80vh] max-w-[85vw] object-contain border border-[var(--rule)]"
+          className="max-h-[80dvh] max-w-[85vw] object-contain border border-[var(--rule)]"
           onClick={(e) => e.stopPropagation()}
         />
 

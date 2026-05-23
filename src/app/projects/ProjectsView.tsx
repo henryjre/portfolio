@@ -25,9 +25,9 @@ export default function ProjectsView() {
   }, []);
 
   return (
-    <div className="h-[calc(100vh-3.5rem)] overflow-y-scroll snap-y snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <div className="md:h-[calc(100dvh-3.5rem)] md:overflow-y-scroll md:snap-y md:snap-mandatory md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden">
       {/* Intro */}
-      <section className="h-[calc(100vh-3.5rem)] snap-start flex flex-col px-6 md:px-10 py-12 bg-[var(--bg)] border-b border-[var(--rule)] relative">
+      <section className="min-h-[calc(100dvh-3.5rem)] md:snap-start flex flex-col px-6 md:px-10 py-12 bg-[var(--bg)] border-b border-[var(--rule)] relative">
         {/* Grid backdrop */}
         <div
           aria-hidden
@@ -89,7 +89,10 @@ export default function ProjectsView() {
             </p>
           </motion.div>
 
-          <div className="border-t border-[var(--rule)] pt-4 flex items-center justify-between mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-dim)]">
+          <a
+            href="#project-1"
+            className="border-t border-[var(--rule)] pt-4 flex items-center justify-between mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-dim)] hover:text-[var(--accent)] transition-colors"
+          >
             <span>SCROLL DOWN</span>
             <motion.span
               animate={{ y: [0, 4, 0] }}
@@ -98,12 +101,18 @@ export default function ProjectsView() {
             >
               ↓
             </motion.span>
-          </div>
+          </a>
         </div>
       </section>
 
       {projects.map((project, index) => (
-        <ProjectSection key={project.id} project={project} index={index} />
+        <ProjectSection
+          key={project.id}
+          project={project}
+          index={index}
+          sectionId={`project-${index + 1}`}
+          nextSectionId={index < projects.length - 1 ? `project-${index + 2}` : undefined}
+        />
       ))}
     </div>
   );

@@ -49,7 +49,7 @@ export default function Header() {
           <SheetTrigger asChild>
             <button
               aria-label="Open menu"
-              className="md:hidden mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink)] border border-[var(--rule)] px-3 py-1.5 hover:bg-[var(--paper)]"
+              className="md:hidden h-11 mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink)] border border-[var(--rule)] px-4 hover:bg-[var(--paper)]"
             >
               MENU
             </button>

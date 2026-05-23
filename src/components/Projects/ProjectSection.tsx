@@ -58,9 +58,11 @@ function ProjectImage({ images, title, onImageClick }: ProjectImageProps) {
 interface ProjectSectionProps {
   project: Project;
   index: number;
+  sectionId: string;
+  nextSectionId?: string;
 }
 
-function ProjectSection({ project, index }: ProjectSectionProps) {
+function ProjectSection({ project, index, sectionId, nextSectionId }: ProjectSectionProps) {
   const isEven = index % 2 === 0;
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
@@ -71,7 +73,10 @@ function ProjectSection({ project, index }: ProjectSectionProps) {
   }
 
   return (
-    <section className="min-h-screen snap-start flex items-center justify-center px-6 md:px-10 py-20 bg-[var(--bg)] border-b border-[var(--rule)]">
+    <section
+      id={sectionId}
+      className="min-h-[calc(100dvh-3.5rem)] md:snap-start flex items-center justify-center px-6 md:px-10 py-16 md:py-20 bg-[var(--bg)] border-b border-[var(--rule)] scroll-mt-14 md:scroll-mt-0"
+    >
       <div className="max-w-[1400px] mx-auto w-full">
         <div
           className={`grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center ${
@@ -129,7 +134,7 @@ function ProjectSection({ project, index }: ProjectSectionProps) {
                 <MagneticLink
                   href={project.githubUrl}
                   external
-                  className="group inline-flex items-center gap-2 mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink)] border border-[var(--rule)] hover:border-[var(--accent)] hover:text-[var(--accent)] px-4 py-2.5 transition-colors"
+                  className="group inline-flex min-h-11 items-center gap-2 mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink)] border border-[var(--rule)] hover:border-[var(--accent)] hover:text-[var(--accent)] px-4 py-3 transition-colors"
                 >
                   <FiGithub className="size-4" />
                   GITHUB <span aria-hidden>↗</span>
@@ -139,7 +144,7 @@ function ProjectSection({ project, index }: ProjectSectionProps) {
                 <MagneticLink
                   href={project.demoUrl}
                   external
-                  className="group inline-flex items-center gap-2 mono text-[11px] uppercase tracking-[0.18em] text-[var(--bg)] bg-[var(--ink)] hover:bg-[var(--accent)] px-4 py-2.5 transition-colors"
+                  className="group inline-flex min-h-11 items-center gap-2 mono text-[11px] uppercase tracking-[0.18em] text-[var(--bg)] bg-[var(--ink)] hover:bg-[var(--accent)] px-4 py-3 transition-colors"
                 >
                   <FiExternalLink className="size-4" />
                   LIVE DEMO <span aria-hidden>↗</span>
@@ -153,6 +158,18 @@ function ProjectSection({ project, index }: ProjectSectionProps) {
             </div>
           </motion.div>
         </div>
+
+        {nextSectionId && (
+          <a
+            href={`#${nextSectionId}`}
+            className="mt-10 flex min-h-11 items-center justify-between border-t border-[var(--rule)] pt-4 mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-dim)] hover:text-[var(--accent)] transition-colors md:hidden"
+          >
+            <span>Next Project</span>
+            <span aria-hidden className="text-base text-[var(--accent)]">
+              ↓
+            </span>
+          </a>
+        )}
       </div>
 
       {modalOpen && (

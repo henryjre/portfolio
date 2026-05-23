@@ -12,13 +12,13 @@ interface Props {
 export default function SectionHeader({ index, label, meta }: Props) {
   return (
     <div className="mb-12 md:mb-16">
-      <div className="flex items-baseline justify-between border-b border-[var(--rule)] pb-3 mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink-dim)]">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b border-[var(--rule)] pb-3 mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink-dim)]">
         <ScrambleText
           inView
           text={`[${index} / ${label}]`}
-          className="text-[var(--ink)]"
+          className="text-[var(--ink)] shrink-0"
         />
-        {meta && <span>{meta}</span>}
+        {meta && <span className="max-w-full text-right break-words">{meta}</span>}
       </div>
     </div>
   );

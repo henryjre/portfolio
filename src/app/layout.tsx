@@ -21,23 +21,30 @@ const interTight = Inter_Tight({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://henrypineda.com'),
-  title: 'Henry Pineda Jr. — Backend & Automation Engineer',
+  title: 'Henry Pineda Jr | Portfolio',
   description:
-    'Henry Pineda Jr. — Backend Developer, Discord Developer, and Automation Specialist. Selected work, experience, and contact.',
+    'Henry Pineda Jr. - Backend Developer, Discord Developer, and Automation Specialist. Featured projects, experience, and contact.',
   authors: [{ name: 'Henry Pineda Jr.' }],
   robots: { index: true, follow: true },
-  icons: { icon: '/favicon.ico' },
+  icons: {
+    icon: [
+      { url: '/favicon.svg?v=3', type: 'image/svg+xml' },
+      { url: '/favicon.ico?v=3', sizes: 'any' },
+    ],
+    shortcut: '/favicon.ico?v=3',
+    apple: '/apple-icon.png?v=3',
+  },
   openGraph: {
     type: 'website',
-    title: 'Henry Pineda Jr. — Backend & Automation Engineer',
+    title: 'Henry Pineda Jr | Portfolio',
     description:
-      'Backend Developer, Discord Developer, and Automation Specialist. Selected work, experience, and contact.',
+      'Backend Developer, Discord Developer, and Automation Specialist. Featured projects, experience, and contact.',
     images: ['/my-png.webp'],
     siteName: 'Henry Pineda Jr.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Henry Pineda Jr. — Backend & Automation Engineer',
+    title: 'Henry Pineda Jr | Portfolio',
     description: 'Backend Developer, Discord Developer, and Automation Specialist.',
     images: ['/my-png.webp'],
   },

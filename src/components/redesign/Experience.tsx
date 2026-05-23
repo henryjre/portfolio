@@ -177,30 +177,31 @@ export default function Experience() {
               ref={(el) => {
                 itemRefs.current[i] = el;
               }}
-              className="grid grid-cols-[40px_1fr] md:grid-cols-[140px_1fr_2fr] gap-x-6 md:gap-x-10 py-10 md:py-14 border-b border-[var(--rule)] last:border-b-0"
+              className="relative grid grid-cols-1 md:grid-cols-[140px_1fr_2fr] md:gap-x-10 py-10 md:py-14 pl-10 md:pl-0 after:absolute after:bottom-0 after:left-10 after:right-0 after:h-px after:bg-[var(--rule)] last:after:hidden md:border-b md:border-[var(--rule)] md:after:hidden md:last:border-b-0"
             >
               {/* Year column */}
-              <div className="md:col-start-1 flex md:block">
+              <div className="md:col-start-1">
                 <span
                   data-dot
-                  className={`relative inline-block w-3 h-3 mt-1.5 md:mt-2.5 border ${
+                  className={`absolute left-[9px] top-11 inline-block w-3 h-3 md:static md:mt-2.5 border ${
                     active[i]
                       ? 'bg-[var(--accent)] border-[var(--accent)]'
                       : 'bg-[var(--bg)] border-[var(--ink-dim)]'
                   } transition-colors duration-500`}
                   style={{ marginLeft: '-1px' }}
                 />
-                <span className="mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink-dim)] ml-3 md:ml-4 md:mt-1.5 md:block tabular-nums">
-                  {item.years}
+                <span className="mono text-[10px] md:text-[11px] uppercase tracking-[0.18em] text-[var(--ink-dim)] md:ml-4 md:mt-1.5 block tabular-nums">
+                  <span className="md:hidden">[{item.years}]</span>
+                  <span className="hidden md:inline">{item.years}</span>
                 </span>
               </div>
 
               {/* Role/company */}
-              <div>
-                <h3 className="mono text-xl md:text-3xl uppercase tracking-tight text-[var(--ink)] leading-tight">
+              <div className="mt-3 md:mt-0 min-w-0">
+                <h3 className="mono text-[1.35rem] md:text-3xl uppercase tracking-tight text-[var(--ink)] leading-tight">
                   {item.role}
                 </h3>
-                <div className="mt-2 mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink-dim)]">
+                <div className="mt-2 mono text-[10px] md:text-[11px] uppercase tracking-[0.12em] md:tracking-[0.18em] leading-relaxed text-[var(--ink-dim)]">
                   {item.company}
                   <span className="mx-2">·</span>
                   {item.location}
@@ -208,7 +209,7 @@ export default function Experience() {
               </div>
 
               {/* Notes */}
-              <div className="col-span-2 md:col-span-1 mt-4 md:mt-0">
+              <div className="mt-5 md:mt-0">
                 <p className="text-[var(--ink)] leading-relaxed text-base">{item.notes}</p>
               </div>
             </div>

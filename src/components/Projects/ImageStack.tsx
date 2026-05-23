@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, type PanInfo } from 'framer-motion';
+import { useReducedMotion } from '@/lib/motion/useReducedMotion';
 
 const STACK_POSITIONS = [
   { rotate: 0, scale: 1, y: 0, opacity: 1 },
@@ -29,6 +30,7 @@ interface ImageStackProps {
 }
 
 function ImageStack({ images, title, onImageClick }: ImageStackProps) {
+  const reduced = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const isDragging = useRef(false);
@@ -39,8 +41,9 @@ function ImageStack({ images, title, onImageClick }: ImageStackProps) {
 
   const startInterval = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
+    if (reduced) return;
     intervalRef.current = setInterval(advance, CYCLE_INTERVAL);
-  }, [advance]);
+  }, [advance, reduced]);
 
   useEffect(() => {
     startInterval();
@@ -86,7 +89,7 @@ function ImageStack({ images, title, onImageClick }: ImageStackProps) {
               zIndex: style.zIndex,
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            drag={isTop ? 'x' : false}
+            drag={isTop && !reduced ? 'x' : false}
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.2}
             onDragStart={handleDragStart}
@@ -117,16 +120,20 @@ function ImageStack({ images, title, onImageClick }: ImageStackProps) {
               startInterval();
             }}
             aria-label={`Show image ${i + 1}`}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-              i === activeIndex ? 'bg-primary w-4' : 'bg-border'
-            }`}
-          />
+            className="group flex size-11 items-center justify-center"
+          >
+            <span
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === activeIndex ? 'w-4 bg-primary' : 'w-1.5 bg-border'
+              }`}
+            />
+          </button>
         ))}
       </div>
 
       <motion.div
-        animate={{ y: [0, 6, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        animate={reduced ? undefined : { y: [0, 6, 0] }}
+        transition={reduced ? undefined : { duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute -bottom-14 left-1/2 -translate-x-1/2 text-xs text-muted-foreground"
       >
         Click to view

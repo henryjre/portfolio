@@ -13,7 +13,7 @@ export default function Hero() {
   const [roleIdx, setRoleIdx] = useState(0);
   const [typed, setTyped] = useState(reduced ? ROLES[0] : '');
   const [clockText, setClockText] = useState('');
-  const [coordsText, setCoordsText] = useState('14.5995° N, 120.9842° E');
+  const [coordsText, setCoordsText] = useState('14.9959°N, 120.6131°E');
 
   // Typewriter: type the current role, pause, delete it, then advance.
   useEffect(() => {
@@ -92,7 +92,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative w-full min-h-[calc(100vh-3.5rem)] flex flex-col border-b border-[var(--rule)] overflow-hidden"
+      className="relative w-full min-h-[calc(100dvh-3.5rem)] flex flex-col border-b border-[var(--rule)] overflow-hidden"
     >
       {/* Grid backdrop */}
       <div

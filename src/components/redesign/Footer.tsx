@@ -76,13 +76,9 @@ export default function Footer() {
         </div>
 
         {/* Legal strip */}
-        <div className="border-t border-[var(--rule)] py-5 flex flex-col md:flex-row gap-3 md:gap-0 md:justify-between mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-dim)]">
+        <div className="border-t border-[var(--rule)] py-5 flex flex-col md:flex-row items-center md:items-start gap-3 md:gap-0 text-center md:text-left md:justify-between mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-dim)]">
           <div>© {year} HENRY PINEDA JR. ALL RIGHTS RESERVED.</div>
           <div className="flex items-center gap-4">
-            <span>BUILT WITH NEXT.JS</span>
-            <span className="hidden md:inline">·</span>
-            <span>RUN ON PM2</span>
-            <span className="hidden md:inline">·</span>
             <span className="text-[var(--accent)]">END OF TRANSMISSION ●</span>
           </div>
         </div>

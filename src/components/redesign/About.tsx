@@ -2,7 +2,7 @@ import Image from "next/image";
 import SectionHeader from "./SectionHeader";
 
 const FACTS = [
-  { k: "BASED", v: "Manila, PH" },
+  { k: "BASED", v: "Pampanga, PH" },
   { k: "AVAILABILITY", v: "Open to work" },
   { k: "TIMEZONE", v: "UTC+8 (PHT)" },
   { k: "BACKGROUND", v: "Self-taught" },
@@ -49,10 +49,10 @@ export default function About() {
               apps, automations, small pieces of code that make everyday work
               easier.
             </p>
-            <p className="mt-6 text-base text-[var(--ink-dim)] leading-relaxed max-w-prose">
+            <p className="mt-6 text-base text-[var(--ink-dim)] leading-relaxed max-w-prose md:max-w-4xl">
               I like the challenge of turning business ideas into working
               systems, solving complex problems, and finding the right
-              workarounds to build things the way i want them to be. Off-hours, I
+              workarounds to build things the way I want them to be. Off-hours, I
               make minimal graphic design and keep upskilling on things that
               help me build better.
             </p>

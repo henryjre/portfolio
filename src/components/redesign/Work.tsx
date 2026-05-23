@@ -20,7 +20,7 @@ export default function Work() {
         />
 
         {/* Column headers (desktop only) */}
-        <div className="hidden md:grid grid-cols-[60px_1fr_2fr_120px] gap-6 pb-4 border-b border-[var(--rule)] mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-dim)]">
+        <div className="hidden md:grid grid-cols-[60px_minmax(360px,1.35fr)_minmax(0,1.65fr)_80px] gap-6 pb-4 border-b border-[var(--rule)] mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-dim)]">
           <span>NO.</span>
           <span>PROJECT</span>
           <span>STACK</span>
@@ -39,17 +39,26 @@ export default function Work() {
                 className="relative border-b border-[var(--rule)] group"
               >
                 <Link
-                  href="/projects"
-                  className="grid grid-cols-[40px_1fr] md:grid-cols-[60px_1fr_2fr_120px] gap-6 py-5 md:py-7 items-center hover:bg-[var(--paper)] transition-colors"
+                  href={`/projects#${p.id}`}
+                  className="block min-h-[88px] py-6 touch-manipulation md:grid md:min-h-0 md:grid-cols-[60px_minmax(360px,1.35fr)_minmax(0,1.65fr)_80px] md:gap-6 md:py-7 md:items-center hover:bg-[var(--paper)] transition-colors"
                 >
-                  <span className="mono text-[11px] text-[var(--ink-dim)] tabular-nums self-start md:self-center">
-                    {idx}
-                  </span>
+                  <div className="mb-2 flex items-center justify-between md:mb-0 md:block">
+                    <span className="mono text-[10px] md:text-[11px] uppercase tracking-[0.18em] text-[var(--ink-dim)] tabular-nums md:self-center">
+                      <span className="md:hidden">[{idx} / PROJECT]</span>
+                      <span className="hidden md:inline">{idx}</span>
+                    </span>
+                    <span
+                      aria-hidden
+                      className="mono text-sm text-[var(--ink-dim)] group-hover:text-[var(--accent)] transition-all md:hidden"
+                    >
+                      →
+                    </span>
+                  </div>
                   <div className="min-w-0">
-                    <h3 className="mono text-lg md:text-2xl uppercase tracking-tight text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors truncate">
+                    <h3 className="mono text-xl md:text-2xl uppercase tracking-tight text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors line-clamp-2 md:block md:truncate">
                       {p.title}
                     </h3>
-                    <p className="md:hidden mt-1 mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-dim)] truncate">
+                    <p className="md:hidden mt-2 mono text-[11px] uppercase tracking-[0.08em] leading-relaxed text-[var(--ink-dim)]">
                       {p.tags.slice(0, 3).join(' · ')}
                     </p>
                   </div>
@@ -99,7 +108,7 @@ export default function Work() {
         <div className="mt-10">
           <MagneticLink
             href="/projects"
-            className="inline-flex items-center gap-3 mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink)] border border-[var(--rule)] hover:border-[var(--accent)] hover:text-[var(--accent)] px-5 py-3 transition-colors"
+            className="inline-flex min-h-11 items-center gap-3 mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink)] border border-[var(--rule)] hover:border-[var(--accent)] hover:text-[var(--accent)] px-5 py-3 transition-colors"
           >
             VIEW ALL WORK <span aria-hidden>→</span>
           </MagneticLink>
