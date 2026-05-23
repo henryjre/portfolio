@@ -43,55 +43,74 @@ function ImageModal({ images, startIndex, title, onClose }: ImageModalProps) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center"
+      className="fixed inset-0 z-[70] bg-[var(--bg)]/95 backdrop-blur-sm flex flex-col"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${title} image viewer`}
     >
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors p-2"
-        aria-label="Close"
-      >
-        <FiX className="size-7" />
-      </button>
-
-      {hasMultiple && (
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            prev();
-          }}
-          className="absolute left-4 text-white/70 hover:text-white transition-colors p-2"
-          aria-label="Previous image"
-        >
-          <FiChevronLeft className="size-8" />
-        </button>
-      )}
-
-      <img
-        src={images[index]}
-        alt={`${title} screenshot ${index + 1}`}
-        className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"
+      {/* Top bar */}
+      <div
+        className="flex items-center justify-between px-6 py-4 border-b border-[var(--rule)] mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink-dim)]"
         onClick={(e) => e.stopPropagation()}
-      />
-
-      {hasMultiple && (
+      >
+        <span className="text-[var(--ink)]">
+          [/IMG · {String(index + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}]
+        </span>
+        <span className="hidden md:inline truncate max-w-md">{title}</span>
         <button
-          onClick={(e) => {
-            e.stopPropagation();
-            next();
-          }}
-          className="absolute right-4 text-white/70 hover:text-white transition-colors p-2"
-          aria-label="Next image"
+          onClick={onClose}
+          className="flex items-center gap-2 text-[var(--ink)] hover:text-[var(--accent)] transition-colors"
+          aria-label="Close image viewer"
         >
-          <FiChevronRight className="size-8" />
+          CLOSE <FiX className="size-4" />
         </button>
-      )}
+      </div>
 
-      {hasMultiple && (
-        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/60 text-sm font-medium">
-          {index + 1} / {images.length}
-        </div>
-      )}
+      {/* Body */}
+      <div className="flex-1 flex items-center justify-center p-6 relative overflow-hidden">
+        {hasMultiple && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              prev();
+            }}
+            className="absolute left-4 md:left-6 z-10 mono text-[var(--ink)] hover:text-[var(--accent)] border border-[var(--rule)] hover:border-[var(--accent)] p-3 transition-colors"
+            aria-label="Previous image"
+          >
+            <FiChevronLeft className="size-6" />
+          </button>
+        )}
+
+        <img
+          src={images[index]}
+          alt={`${title} screenshot ${index + 1}`}
+          className="max-h-[80vh] max-w-[85vw] object-contain border border-[var(--rule)]"
+          onClick={(e) => e.stopPropagation()}
+        />
+
+        {hasMultiple && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              next();
+            }}
+            className="absolute right-4 md:right-6 z-10 mono text-[var(--ink)] hover:text-[var(--accent)] border border-[var(--rule)] hover:border-[var(--accent)] p-3 transition-colors"
+            aria-label="Next image"
+          >
+            <FiChevronRight className="size-6" />
+          </button>
+        )}
+      </div>
+
+      {/* Bottom bar */}
+      <div
+        className="px-6 py-3 border-t border-[var(--rule)] mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-dim)] flex items-center justify-between"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <span>ESC TO CLOSE</span>
+        {hasMultiple && <span>← → TO NAVIGATE</span>}
+      </div>
     </div>,
     document.body
   );

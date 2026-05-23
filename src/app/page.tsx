@@ -1,24 +1,22 @@
-import CoverImage from '@/components/Landing/CoverImage';
-import SkillCarousel from '@/components/Landing/SkillCarousel/SkillCarousel';
-import ExperienceTimeline from '@/components/Landing/ExperienceTimeline/ExperienceTimeline';
-import AboutSection from '@/components/Landing/AboutSection';
-import ContactForm from '@/components/Contact/ContactForm';
-import Footer from '@/components/Footer/Footer';
+import Hero from '@/components/redesign/Hero';
+import Skills from '@/components/redesign/Skills';
+import Work from '@/components/redesign/Work';
+import Experience from '@/components/redesign/Experience';
+import About from '@/components/redesign/About';
+import Contact from '@/components/redesign/Contact';
+import Footer from '@/components/redesign/Footer';
 
 export default function HomePage() {
   return (
     <>
-      <CoverImage />
-
+      <Hero />
       <main>
-        <div className="bg-secondary/40">
-          <SkillCarousel />
-          <ExperienceTimeline />
-        </div>
-        <AboutSection />
-        <ContactForm />
+        <Skills />
+        <Work />
+        <Experience />
+        <About />
+        <Contact />
       </main>
-
       <Footer />
     </>
   );

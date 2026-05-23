@@ -3,24 +3,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
-import { Button } from '@/components/ui/button';
 import ImageStack from './ImageStack';
 import ImageModal from './ImageModal';
+import MagneticLink from '@/components/redesign/MagneticLink';
 import type { Project } from '@/data/projects';
-
-const fadeLeft = {
-  hidden: { opacity: 0, x: -48 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
-};
-
-const fadeRight = {
-  hidden: { opacity: 0, x: 48 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, ease: 'easeOut' as const, delay: 0.15 },
-  },
-};
 
 interface ProjectImageProps {
   images: string[];
@@ -31,40 +17,39 @@ interface ProjectImageProps {
 function ProjectImage({ images, title, onImageClick }: ProjectImageProps) {
   if (!images || images.length === 0) {
     return (
-      <div className="rounded-2xl w-full aspect-video flex items-center justify-center bg-secondary border border-border shadow-inner">
-        <span className="text-muted-foreground text-sm font-medium">No preview available</span>
+      <div className="w-full aspect-[4/3] flex items-center justify-center bg-[var(--paper)] border border-[var(--rule)]">
+        <span className="mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink-dim)]">
+          NO PREVIEW
+        </span>
       </div>
     );
   }
 
   if (images.length === 1) {
     return (
-      <div className="w-full flex flex-col items-center gap-6">
+      <div className="w-full">
         <button
           onClick={() => onImageClick(0)}
-          className="w-full cursor-pointer focus:outline-none"
-          aria-label="View image"
+          className="block w-full border border-[var(--rule)] hover:border-[var(--accent)] transition-colors group"
+          aria-label="View image full size"
         >
           <img
             src={images[0]}
             alt={`${title} screenshot`}
             loading="lazy"
-            className="rounded-2xl shadow-xl w-full max-h-[55vh] object-cover border border-border hover:brightness-90 transition-all"
+            className="w-full aspect-[4/3] object-cover group-hover:opacity-90 transition-opacity"
           />
+          <div className="flex justify-between items-center px-3 py-2 border-t border-[var(--rule)] mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-dim)] group-hover:text-[var(--accent)] transition-colors">
+            <span>/IMG_001</span>
+            <span>CLICK TO EXPAND →</span>
+          </div>
         </button>
-        <motion.p
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="text-xs text-muted-foreground"
-        >
-          Click to view
-        </motion.p>
       </div>
     );
   }
 
   return (
-    <div className="w-full pb-16">
+    <div className="w-full pb-12">
       <ImageStack images={images} title={title} onImageClick={onImageClick} />
     </div>
   );
@@ -86,68 +71,84 @@ function ProjectSection({ project, index }: ProjectSectionProps) {
   }
 
   return (
-    <section className="h-screen snap-start flex items-center justify-center px-[4vw] bg-background">
-      <div className="container max-w-[1440px] mx-auto w-full">
+    <section className="min-h-screen snap-start flex items-center justify-center px-6 md:px-10 py-20 bg-[var(--bg)] border-b border-[var(--rule)]">
+      <div className="max-w-[1400px] mx-auto w-full">
         <div
-          className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-10 md:gap-16`}
+          className={`grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center ${
+            isEven ? '' : 'md:[direction:rtl]'
+          }`}
         >
           <motion.div
-            className="w-full md:w-1/2 flex items-center justify-center"
-            variants={isEven ? fadeLeft : fadeRight}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.4 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="md:col-span-7 md:[direction:ltr]"
           >
             <ProjectImage images={project.images} title={project.title} onImageClick={openModal} />
           </motion.div>
 
           <motion.div
-            className="w-full md:w-1/2 flex flex-col gap-5"
-            variants={isEven ? fadeRight : fadeLeft}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.4 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+            className="md:col-span-5 md:[direction:ltr] flex flex-col gap-5"
           >
-            <p className="text-xs font-bold uppercase tracking-widest text-primary">
-              Project {String(index + 1).padStart(2, '0')}
-            </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
+            <div className="mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-dim)] flex items-center gap-2">
+              <span>[{String(index + 1).padStart(2, '0')} / PROJECT]</span>
+              <span className="flex-1 h-px bg-[var(--rule)]" />
+            </div>
+
+            <h2 className="mono text-3xl md:text-5xl uppercase tracking-tight text-[var(--ink)] leading-[0.95]">
               {project.title}
             </h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+
+            <p className="text-[var(--ink-dim)] leading-relaxed text-base">
               {project.description}
             </p>
 
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20"
-                >
-                  {tag}
-                </span>
-              ))}
+            <div className="border-t border-[var(--rule)] pt-4">
+              <div className="mono text-[10px] uppercase tracking-[0.18em] text-[var(--ink-dim)] mb-2">
+                / STACK
+              </div>
+              <div className="flex flex-wrap gap-x-3 gap-y-1">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink)]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            <div className="flex gap-3 flex-wrap">
+            <div className="flex gap-3 flex-wrap pt-2">
               {project.githubUrl && (
-                <Button asChild variant="outline" size="sm" className="gap-2">
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                    <FiGithub className="size-4" />
-                    GitHub
-                  </a>
-                </Button>
+                <MagneticLink
+                  href={project.githubUrl}
+                  external
+                  className="group inline-flex items-center gap-2 mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink)] border border-[var(--rule)] hover:border-[var(--accent)] hover:text-[var(--accent)] px-4 py-2.5 transition-colors"
+                >
+                  <FiGithub className="size-4" />
+                  GITHUB <span aria-hidden>↗</span>
+                </MagneticLink>
               )}
               {project.demoUrl && (
-                <Button asChild size="sm" className="gap-2">
-                  <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                    <FiExternalLink className="size-4" />
-                    Live Demo
-                  </a>
-                </Button>
+                <MagneticLink
+                  href={project.demoUrl}
+                  external
+                  className="group inline-flex items-center gap-2 mono text-[11px] uppercase tracking-[0.18em] text-[var(--bg)] bg-[var(--ink)] hover:bg-[var(--accent)] px-4 py-2.5 transition-colors"
+                >
+                  <FiExternalLink className="size-4" />
+                  LIVE DEMO <span aria-hidden>↗</span>
+                </MagneticLink>
               )}
               {!project.githubUrl && !project.demoUrl && (
-                <span className="text-sm text-muted-foreground italic">Private project</span>
+                <span className="mono text-[11px] uppercase tracking-[0.18em] text-[var(--ink-dim)]">
+                  / PRIVATE PROJECT
+                </span>
               )}
             </div>
           </motion.div>
