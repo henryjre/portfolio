@@ -48,7 +48,7 @@ const projects: Project[] = [
       "AWS S3",
       "RBAC",
     ],
-    githubUrl: "https://github.com/henryjre/icp-website.git",
+    githubUrl: null,
     demoUrl: "https://icpfnetengineering.com",
   },
   {
@@ -75,7 +75,7 @@ const projects: Project[] = [
       "Real-time",
       "B2B",
     ],
-    githubUrl: "https://github.com/henryjre/omnilert-web-app.git",
+    githubUrl: null,
     demoUrl: "https://omnilert.app",
   },
   {
