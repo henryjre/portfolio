@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { JetBrains_Mono, Inter_Tight } from 'next/font/google';
 import Header from '@/components/redesign/Header';
 import ScrollRail from '@/components/redesign/ScrollRail';
@@ -62,6 +63,23 @@ export const viewport: Viewport = {
   themeColor: '#0A0A0A',
 };
 
+const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC;
+const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+const umamiEnabled =
+  process.env.NODE_ENV === 'production' && Boolean(umamiSrc) && Boolean(umamiWebsiteId);
+
+// Session replay (Umami v3.1.0+) uses recorder.js, served from the same host as
+// the tracker. Derive its URL from the tracker src, then enable it in the Umami
+// dashboard per-website. Replay must be toggled separately so a future opt-out
+// doesn't require redeploying.
+const umamiReplaySrc = umamiSrc?.endsWith('/script.js')
+  ? umamiSrc.replace(/\/script\.js$/, '/recorder.js')
+  : undefined;
+const umamiReplayEnabled =
+  umamiEnabled &&
+  process.env.NEXT_PUBLIC_UMAMI_REPLAY === 'true' &&
+  Boolean(umamiReplaySrc);
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const personJsonLd = {
     '@context': 'https://schema.org',
@@ -92,6 +110,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
+        {umamiEnabled && (
+          <Script
+            src={umamiSrc}
+            data-website-id={umamiWebsiteId}
+            strategy="afterInteractive"
+          />
+        )}
+        {umamiReplayEnabled && (
+          <Script
+            src={umamiReplaySrc}
+            data-website-id={umamiWebsiteId}
+            strategy="afterInteractive"
+          />
+        )}
         <ScrollRail />
         <Cursor />
         <Header />
